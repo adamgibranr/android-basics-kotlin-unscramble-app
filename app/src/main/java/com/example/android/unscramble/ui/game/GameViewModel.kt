@@ -8,4 +8,8 @@ class GameViewModel : ViewModel() {
     private var _currentScrambledWord = "test"
     val currentScrambeldWord: String
         get() = _currentScrambledWord
+
+    init {
+        log.d("GameFragment", "GameViewModel created!")
+    }
 }
