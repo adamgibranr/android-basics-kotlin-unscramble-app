@@ -10,6 +10,11 @@ class GameViewModel : ViewModel() {
         get() = _currentScrambledWord
 
     init {
-        log.d("GameFragment", "GameViewModel created!")
+        Log.d("GameFragment", "GameViewModel created!")
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log
     }
 }
