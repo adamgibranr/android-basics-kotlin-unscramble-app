@@ -144,6 +144,7 @@ class GameFragment : Fragment() {
         activity?.finish()
     }
 
+
     override fun onDetach() {
         super.onDetach()
         Log.d("GameFragment", "Word: ${viewModel.currentScrambledWord} " +
