@@ -5,6 +5,14 @@ import androidx.lifecycle.ViewModel
 
 class GameViewModel : ViewModel() {
 
+    //Taruh di mana?
+    // Set error text
+    //passwordLayout.error = getString(R.string.error)
+
+// Clear error text
+    //passwordLayout.error = null
+    //
+
     private var wordsList: MutableList<String> = mutableListOf()
     private lateinit var currentWord: String
 
