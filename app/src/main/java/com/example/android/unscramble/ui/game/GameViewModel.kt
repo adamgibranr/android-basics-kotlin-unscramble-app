@@ -28,7 +28,7 @@ class GameViewModel : ViewModel() {
     //private var _currentScrambledWord = "test"
     private lateinit var _currentScrambledWord: String
     //
-    val currentScrambeldWord: String
+    val currentScrambledWord: String
         get() = _currentScrambledWord
 
     init {
@@ -42,7 +42,7 @@ class GameViewModel : ViewModel() {
     }
 
     private fun getNextWord() {
-        //currentWord = allWordsList.random()
+        currentWord = allWordsList.random()
         val tempWord = currentWord.toCharArray()
         tempWord.shuffle()
         while (String(tempWord).equals(currentWord, false)) {
