@@ -31,7 +31,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
  * Fragment where the game is played, contains the game logic.
  */
 class GameFragment : Fragment() {
-    private val viewModel = GameViewModel()
 
     private val viewModel: GameViewModel by viewModels()
 
