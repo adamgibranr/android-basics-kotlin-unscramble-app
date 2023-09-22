@@ -133,7 +133,9 @@ class GameFragment : Fragment() {
 
     override fun onDetach() {
         super.onDetach()
-        Log.d("GameFragment", "GameFragment destroyed!")
+        Log.d("GameFragment", "Word: ${viewModel.currentScrambledWord} " +
+                "Score: ${viewModel.score} WordCount: ${viewModel.currentWordCount}")
+
     }
 
     /*
