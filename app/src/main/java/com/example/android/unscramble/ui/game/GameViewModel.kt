@@ -56,6 +56,17 @@ class GameViewModel : ViewModel() {
             wordsList.add(currentWord)
         }
     }
+
+    /*
+     * Re-initializes the game data to restart the game.
+     */
+    fun reinitializeData() {
+        _score = 0
+        _currentWordCount = 0
+        wordsList.clear()
+        getNextWord()
+    }
+
     /*
 * Returns true if the current word count is less than MAX_NO_OF_WORDS.
 * Updates the next word.

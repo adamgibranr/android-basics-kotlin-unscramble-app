@@ -134,6 +134,12 @@ class GameFragment : Fragment() {
     /*
      * Exits the game.
      */
+    private fun restartGame() {
+        viewModel.reinitializeData()
+        setErrorTextField(false)
+        updateNextWordOnScreen()
+    }
+
     private fun exitGame() {
         activity?.finish()
     }
