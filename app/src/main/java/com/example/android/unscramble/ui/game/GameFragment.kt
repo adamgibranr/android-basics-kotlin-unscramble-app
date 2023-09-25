@@ -21,6 +21,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.android.unscramble.R
@@ -57,7 +58,7 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //  Log.d("GameFragment", "Word: ${viewModel.currentScrambledWord} " +
+        //Log.d("GameFragment", "Word: ${viewModel.currentScrambledWord} " +
         // "Score: ${viewModel.score} WordCount: ${viewModel.currentWordCount}")
 
 
@@ -69,6 +70,12 @@ class GameFragment : Fragment() {
         binding.score.text = getString(R.string.score, 0)
         binding.wordCount.text = getString(
                 R.string.word_count, 0, MAX_NO_OF_WORDS)
+        // Observe the currentScrambledWord LiveData.
+        // Observe the scrambledCharArray LiveData, passing in the LifecycleOwner and the observer.
+        viewModel.currentScrambledWord.observe(viewLifecycleOwner,
+            { newWord ->
+            })
+
     }
 
     /*
