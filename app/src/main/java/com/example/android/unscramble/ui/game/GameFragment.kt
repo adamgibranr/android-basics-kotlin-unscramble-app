@@ -31,10 +31,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
  * Fragment where the game is played, contains the game logic.
  */
 class GameFragment : Fragment() {
-    private val viewModel = GameViewModel()
+    //private val viewModel = GameViewModel()
 
     private val viewModel: GameViewModel by viewModels()
-
 
     // Binding object instance with access to the views in the game_fragment.xml layout
     private lateinit var binding: GameFragmentBinding
@@ -58,8 +57,8 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Log.d("GameFragment", "Word: ${viewModel.currentScrambledWord} " +
-                "Score: ${viewModel.score} WordCount: ${viewModel.currentWordCount}")
+        //  Log.d("GameFragment", "Word: ${viewModel.currentScrambledWord} " +
+        // "Score: ${viewModel.score} WordCount: ${viewModel.currentWordCount}")
 
 
         // Setup a click listener for the Submit and Skip buttons.
@@ -126,10 +125,10 @@ class GameFragment : Fragment() {
      * Re-initializes the data in the ViewModel and updates the views with the new data, to
      * restart the game.
      */
-    private fun restartGame() {
-        setErrorTextField(false)
-        updateNextWordOnScreen()
-    }
+    //private fun restartGame() {
+    //    setErrorTextField(false)
+    //    updateNextWordOnScreen()
+    //}
 
     /*
      * Exits the game.
@@ -147,9 +146,9 @@ class GameFragment : Fragment() {
 
     override fun onDetach() {
         super.onDetach()
-        Log.d("GameFragment", "Word: ${viewModel.currentScrambledWord} " +
-                "Score: ${viewModel.score} WordCount: ${viewModel.currentWordCount}")
-
+        Log.d("GameFragment", "GameFragment destroyed!")
+        //Log.d("GameFragment", "Word: ${viewModel.currentScrambledWord} " +
+        //        "Score: ${viewModel.score} WordCount: ${viewModel.currentWordCount}")
     }
 
     /*
