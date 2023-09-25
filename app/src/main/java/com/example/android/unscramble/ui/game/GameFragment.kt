@@ -74,8 +74,9 @@ class GameFragment : Fragment() {
         // Observe the currentScrambledWord LiveData.
         // Observe the scrambledCharArray LiveData, passing in the LifecycleOwner and the observer.
         viewModel.currentScrambledWord.observe(viewLifecycleOwner,
-            { newScore ->
-                binding.score.text = getString(R.string.score, newScore)
+            { newWordCount ->
+                binding.score.text =
+                    getString(R.string.word_count, newWordCount, MAX_NO_OF_WORDS)
             })
 
 
