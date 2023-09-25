@@ -58,6 +58,9 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.gameViewModel = viewModel
+        binding.maxNoOfWords = MAX_NO_OF_WORDS
+
         //  Log.d("GameFragment", "Word: ${viewModel.currentScrambledWord} " +
         // "Score: ${viewModel.score} WordCount: ${viewModel.currentWordCount}")
 
