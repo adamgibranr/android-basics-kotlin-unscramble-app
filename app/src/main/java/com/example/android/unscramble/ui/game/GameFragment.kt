@@ -67,15 +67,17 @@ class GameFragment : Fragment() {
         binding.skip.setOnClickListener { onSkipWord() }
         // Update the UI
         updateNextWordOnScreen()
-        binding.score.text = getString(R.string.score, 0)
-        binding.wordCount.text = getString(
-                R.string.word_count, 0, MAX_NO_OF_WORDS)
+        //dihapus
+        //binding.score.text = getString(R.string.score, 0)
+        //binding.wordCount.text = getString(
+                //R.string.word_count, 0, MAX_NO_OF_WORDS)
         // Observe the currentScrambledWord LiveData.
         // Observe the scrambledCharArray LiveData, passing in the LifecycleOwner and the observer.
         viewModel.currentScrambledWord.observe(viewLifecycleOwner,
-            { newWord ->
-                binding.textViewUnscrambledWord.text = newWord
+            { newScore ->
+                binding.score.text = getString(R.string.score, newScore)
             })
+
 
     }
 
