@@ -60,7 +60,6 @@ class GameViewModel : ViewModel() {
             }
         }
 
-
         /*
      * Re-initializes the game data to restart the game.
      */
