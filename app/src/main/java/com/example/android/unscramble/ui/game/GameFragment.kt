@@ -61,9 +61,12 @@ class GameFragment : Fragment() {
         binding.gameViewModel = viewModel
         binding.maxNoOfWords = MAX_NO_OF_WORDS
 
+        // Specify the fragment view as the lifecycle owner of the binding.
+        // This is used so that the binding can observe LiveData updates
+        binding.lifecycleOwner = viewLifecycleOwner
+
         //  Log.d("GameFragment", "Word: ${viewModel.currentScrambledWord} " +
         // "Score: ${viewModel.score} WordCount: ${viewModel.currentWordCount}")
-
 
         // Setup a click listener for the Submit and Skip buttons.
         binding.submit.setOnClickListener { onSubmitWord() }
@@ -172,7 +175,7 @@ class GameFragment : Fragment() {
      * Displays the next scrambled word on screen.
      */
     private fun updateNextWordOnScreen() {
-        binding.textViewUnscrambledWord.text = viewModel.currentScrambledWord
+        binding.textViewUnscrambledWord.text = viewModel.currentScrambledWord.toString()
     }
 
     /*
