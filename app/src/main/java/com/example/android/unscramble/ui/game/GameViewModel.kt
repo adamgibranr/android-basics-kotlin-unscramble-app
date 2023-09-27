@@ -35,8 +35,26 @@ class GameViewModel : ViewModel() {
     //private var _currentScrambledWord = "test"
     private val _currentScrambledWord = MutableLiveData<String>()
     //
-    val currentScrambledWord: LiveData<String>
-        get() = _currentScrambledWord
+
+    //val currentScrambledWord: LiveData<String>
+    //    get() = _currentScrambledWord
+    // TALKBACK
+    val currentScrambledWord: LiveData<Spannable> = Transformations.map(_currentScrambledWord) {
+        if (it == null) {
+            SpannableString("")
+        } else {
+            val scrambledWord = it.toString()
+            val spannable: Spannable = SpannableString(scrambledWord)
+            spannable.setSpan(
+                TtsSpan.VerbatimBuilder(scrambledWord).build(),
+                0,
+                scrambledWord.length,
+                Spannable.SPAN_INCLUSIVE_INCLUSIVE
+            )
+            spannable
+        }
+    }
+    //
 
     init {
         Log.d("GameFragment", "GameViewModel created!")
@@ -98,22 +116,4 @@ class GameViewModel : ViewModel() {
         }
         return false
     }
-
-    // TALKBACK
-    val currentScrambledWord: LiveData<Spannable> = Transformations.map(_currentScrambledWord) {
-        if (it == null) {
-            SpannableString("")
-        } else {
-            val scrambledWord = it.toString()
-            val spannable: Spannable = SpannableString(scrambledWord)
-            spannable.setSpan(
-                TtsSpan.VerbatimBuilder(scrambledWord).build(),
-                0,
-                scrambledWord.length,
-                Spannable.SPAN_INCLUSIVE_INCLUSIVE
-            )
-            spannable
-        }
-    }
-    //
 }

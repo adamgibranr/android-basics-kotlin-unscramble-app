@@ -48,9 +48,9 @@ class GameFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.game_fragment, container, false)
-        Log.d("GameFragment", "GameFragment created/re-created!")
-        Log.d("GameFragment", "Word: ${viewModel.currentScrambledWord} " +
-                "Score: ${viewModel.score} WordCount: ${viewModel.currentWordCount}")
+        //Log.d("GameFragment", "GameFragment created/re-created!")
+        //Log.d("GameFragment", "Word: ${viewModel.currentScrambledWord} " +
+        //        "Score: ${viewModel.score} WordCount: ${viewModel.currentWordCount}")
 
         return binding.root
     }
@@ -200,7 +200,7 @@ class GameFragment : Fragment() {
     private fun showFinalScoreDialog() {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(getString(R.string.congratulations))
-            .setMessage(getString(R.string.you_scored, viewModel.score))
+            .setMessage(getString(R.string.you_scored, viewModel.score.value))
             .setCancelable(false)
             .setNegativeButton(getString(R.string.exit)) { _, _ ->
                 exitGame()
